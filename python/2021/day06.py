@@ -4,7 +4,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
 # part 1 & 2
-with open(dir_path + '/day06.txt') as file:
+with open(dir_path + '/day07.txt') as file:
     fish_dict = {value:{'pv': 0, 'nv':0} for value in range(9)}
     fishes = [int(fish) for fish in next(file).split(',')]
     for fish in fishes:
