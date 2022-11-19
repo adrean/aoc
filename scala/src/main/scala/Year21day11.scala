@@ -12,8 +12,13 @@ object Year21day11 {
       .getLines()
       .map(line => line.toCharArray.map(_.asDigit)).
       toArray
+    val octopusesCount = octopuses.map(line => line.length).sum
+    println(s"$octopusesCount octopuses")
     var flashCount:Int = 0
-    for step <- 1 to 100 do
+    var syncedOctopuses: Boolean = false
+    var step = 0
+    while !syncedOctopuses do
+      step += 1
       var flashingOctopuses:Set[(Int,Int)] = Set[(Int,Int)]()
       for
         i <- 0 until octopuses.length
@@ -49,6 +54,7 @@ object Year21day11 {
         octopuses(flashingOctopus._1)(flashingOctopus._2) = 0
 
       println(s"Step $step: $flashCount flashing octopuses")
+      if flashingOctopuses.size == octopusesCount then syncedOctopuses = true
 
   }
 }
